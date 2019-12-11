@@ -1,0 +1,78 @@
+CREATE DATABASE ecommerce;
+
+CREATE SCHEMA web;
+
+CREATE TABLE web.Customers(
+	CustomerID SERIAL PRIMARY KEY,
+	Email TEXT UNIQUE NOT NULL,
+	Password TEXT NOT NULL,
+	FirstName TEXT NOT NULL,
+	LastName TEXT NOT NULL,
+	CPF VARCHAR (50) NOT NULL,
+	BirthDate TIMESTAMP NOT NULL,
+	Adress TEXT NOT NULL,
+	CEP INTEGER NOT NULL
+)
+
+CREATE TABLE web.Products(
+	ProductID SERIAL PRIMARY KEY,
+	ProductName TEXT NOT NULL,
+	ProductPrice REAL NOT NULL,
+	ProductDescription TEXT NOT NULL,
+	ProductStock INTEGER DEFAULT 0,
+	ProductWeight REAL NOT NULL,
+	ProductVolume REAL NOT NULL,
+	ProductRating SMALLINT DEFAULT 0,
+	ProductAdress TEXT NOT NULL,
+	ProductCEP INTEGER NOT NULL
+)
+
+CREATE TABLE web.Orders(
+	OrderID SERIAL PRIMARY KEY,
+	CustomerID INTEGER REFERENCES web.Customers(CustomerID) NOT NULL,
+	OrderDate TIMESTAMP NOT NULL,
+	Freight REAL NOT NULL,
+	TotalPaid REAL NOT NULL
+)
+
+CREATE TABLE web.OrderProducts(
+	OrderID INTEGER REFERENCES web.Orders(OrderID) NOT NULL,
+	ProductID INTEGER REFERENCES web.Products(ProductID) NOT NULL,
+	Quantity INTEGER NOT NULL
+)
+
+CREATE TABLE web.Brands(
+	BrandID SERIAL PRIMARY KEY,
+	BrandName TEXT NOT NULL,
+	BrandRating SMALLINT DEFAULT 0
+)
+
+CREATE TABLE web.ProductBrands(
+	ProductID INTEGER REFERENCES web.Products(ProductID) NOT NULL,
+	BrandID INTEGER REFERENCES web.Brands(BrandID) NOT NULL
+)
+
+CREATE TABLE web.Categories(
+	CategoryID SERIAL PRIMARY KEY,
+	CategoryName TEXT NOT NULL
+)
+
+CREATE TABLE web.ProductCategories(
+	ProductID INTEGER REFERENCES web.Products(ProductID) NOT NULL,
+	CategoryID INTEGER REFERENCES web.Categories(CategoryID) NOT NULL
+)
+
+CREATE TABLE web.Images(
+	ImageID SERIAL PRIMARY KEY,
+	ImagePath TEXT NOT NULL
+)
+
+CREATE TABLE web.ProductImages(
+	ProductID INTEGER REFERENCES web.Products(ProductID) NOT NULL,
+	ImageID INTEGER REFERENCES web.Images(ImageID) NOT NULL
+)
+
+CREATE USER php WITH ENCRYPTED PASSWORD 'twm1234';
+GRANT ALL PRIVILEGES ON DATABASE ecommerce TO php;
+GRANT ALL PRIVILEGES ON SCHEMA web TO php;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA web TO php;
