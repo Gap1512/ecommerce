@@ -9,7 +9,7 @@
          <h1>Register a new brand</h1>
          <input type="text" name="brandName" placeholder="Name" autofocus><br>
          <input type="number" min="0" max="5" step="0.1" name="brandRating" placeholder="Rating"><br>
-         <input type="submit" value="New"><br>
+         <input type="submit" value="Register"><br>
     </form>
 
     <form id="brand-modify" action="/ecommerce/brand-modify.php" method="post">

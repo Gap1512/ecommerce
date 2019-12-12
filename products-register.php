@@ -25,7 +25,18 @@
              echo '<a href="/ecommerce/categories-register.php" target="_blank">New Category</a><br>';
          ?>
  
-         <input type="submit" value="New">
+         <input type="submit" value="Register">
      </form>
+
+     <form id="product-modify" action="/ecommerce/product-modify.php" method="post">
+        <h1>Registered products</h1>
+
+        <?php
+             include 'products-selection.php';
+        ?>
+
+        <input type="submit" name="productModify" value="Details">
+        <input type="submit" name="productModify" value="Delete">
+    </form>
 </body>
 </html>
