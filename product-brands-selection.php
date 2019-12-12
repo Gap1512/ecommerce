@@ -4,7 +4,7 @@
 
     $result=pg_query($connection, "SELECT * FROM web.Brands");
 
-    echo '<select multiple name="productBrands">';
+    echo '<select multiple name="productBrands[]">';
 
     while($brand=pg_fetch_assoc($result)){
         echo '<option value='.$brand['brandid'].'>'.$brand['brandname'].'</option><br>';

@@ -5,7 +5,7 @@
     <title>Products Register</title>
 </head>
 <body>
-    <form id="product-register" action="/ecommerce/products-register.php" method="get">
+    <form id="product-register" action="/ecommerce/product-insert.php" method="post" enctype="multipart/form-data">
          <h1>Register a new product</h1>
          <input type="text" name="productName" placeholder="Name" autofocus><br>
          <input type="number" min="0" step="0.01" name="productPrice" placeholder="Price"><br>
@@ -23,7 +23,7 @@
              include 'product-categories-selection.php';
          ?>
 
-         <input type="file" multiple accept="image/*" name="productImages"><br>
+         //<input type="file" multiple accept="image/*" name="productImages[]"><br>
  
          <input type="submit" value="Submit">
      </form>
