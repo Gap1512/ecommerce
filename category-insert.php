@@ -2,6 +2,8 @@
 
     require 'database-connection.php';
 
+    include 'init-categories-fields.php';
+
     $connection=databaseConnection();
 
     $query=pg_prepare($connection, "insert",

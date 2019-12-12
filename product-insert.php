@@ -9,7 +9,9 @@
     pg_prepare($connection, "brands", 'INSERT INTO web.ProductBrands(ProductID, BrandID) VALUES($1, $2)');
     pg_prepare($connection, "categories", 'INSERT INTO web.ProductCategories(ProductID, CategoryID) VALUES($1, $2)');
 
-     $result = pg_fetch_result(pg_execute($connection, "insert",
+    include 'init-products-fields.php';
+
+    $result = pg_fetch_result(pg_execute($connection, "insert",
                               array($_POST['productName'],
                                     $_POST['productPrice'],
                                     $_POST['productDescription'],
@@ -29,8 +31,6 @@
         foreach($_POST['productCategories'] as $category) {
             pg_execute($connection, "categories", array($result, $category));
         }
-
-        $i=0;
 
         echo 'Product inserted on database';
         
