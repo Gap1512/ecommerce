@@ -9,7 +9,7 @@
     if(!isset($_POST['productRating'])) $_POST['productRating'] = NULL;
     if(!isset($_POST['productAdress'])) $_POST['productAdress'] = NULL;
     if(!isset($_POST['productCEP'])) $_POST['productCEP'] = NULL;
-    if(!isset($_POST['productBrands'])) $_POST['productBrands'] = NULL;
-    if(!isset($_POST['productCategories'])) $_POST['productCategories'] = NULL;
+    if(!isset($_POST['Brands'])) $_POST['Brands'] = NULL;
+    if(!isset($_POST['Categories'])) $_POST['Categories'] = NULL;
 
 ?>

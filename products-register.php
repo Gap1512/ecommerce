@@ -19,11 +19,13 @@
 
          <?php
              require 'database-connection.php';
-             include 'product-brands-selection.php';
-             include 'product-categories-selection.php';
+             include 'brands-selection.php';
+             echo '<a href="/ecommerce/brands-register.php" target="_blank">New Brand</a><br>';
+             include 'categories-selection.php';
+             echo '<a href="/ecommerce/categories-register.php" target="_blank">New Category</a><br>';
          ?>
  
-         <input type="submit" value="Submit">
+         <input type="submit" value="New">
      </form>
 </body>
 </html>

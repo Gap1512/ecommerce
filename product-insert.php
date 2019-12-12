@@ -24,11 +24,11 @@
 
     if ($result !== FALSE){
         
-        foreach($_POST['productBrands'] as $brand) {
+        foreach($_POST['Brands'] as $brand) {
             pg_execute($connection, "brands", array($result, $brand));
         }
                 
-        foreach($_POST['productCategories'] as $category) {
+        foreach($_POST['Categories'] as $category) {
             pg_execute($connection, "categories", array($result, $category));
         }
 
