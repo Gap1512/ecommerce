@@ -12,7 +12,7 @@ CREATE TABLE web.Customers(
 	BirthDate TIMESTAMP NOT NULL,
 	Adress TEXT NOT NULL,
 	CEP INTEGER NOT NULL
-)
+);
 
 CREATE TABLE web.Products(
 	ProductID SERIAL PRIMARY KEY,
@@ -25,7 +25,7 @@ CREATE TABLE web.Products(
 	ProductRating SMALLINT DEFAULT 0,
 	ProductAdress TEXT NOT NULL,
 	ProductCEP INTEGER NOT NULL
-)
+);
 
 CREATE TABLE web.Orders(
 	OrderID SERIAL PRIMARY KEY,
@@ -33,46 +33,46 @@ CREATE TABLE web.Orders(
 	OrderDate TIMESTAMP NOT NULL,
 	Freight REAL NOT NULL,
 	TotalPaid REAL NOT NULL
-)
+);
 
 CREATE TABLE web.OrderProducts(
-	OrderID INTEGER REFERENCES web.Orders(OrderID) NOT NULL,
-	ProductID INTEGER REFERENCES web.Products(ProductID) NOT NULL,
+	OrderID INTEGER REFERENCES web.Orders(OrderID),
+	ProductID INTEGER REFERENCES web.Products(ProductID) ON DELETE CASCADE,
 	Quantity INTEGER NOT NULL
-)
+);
 
 CREATE TABLE web.Brands(
 	BrandID SERIAL PRIMARY KEY,
 	BrandName TEXT NOT NULL,
 	BrandRating SMALLINT DEFAULT 0
-)
+);
 
 CREATE TABLE web.ProductBrands(
-	ProductID INTEGER REFERENCES web.Products(ProductID) NOT NULL,
-	BrandID INTEGER REFERENCES web.Brands(BrandID) NOT NULL
-)
+	ProductID INTEGER REFERENCES web.Products(ProductID) ON DELETE CASCADE,
+	BrandID INTEGER REFERENCES web.Brands(BrandID)
+);
 
 CREATE TABLE web.Categories(
 	CategoryID SERIAL PRIMARY KEY,
 	CategoryName TEXT NOT NULL
-)
+);
 
 CREATE TABLE web.ProductCategories(
-	ProductID INTEGER REFERENCES web.Products(ProductID) NOT NULL,
-	CategoryID INTEGER REFERENCES web.Categories(CategoryID) NOT NULL
-)
+	ProductID INTEGER REFERENCES web.Products(ProductID) ON DELETE CASCADE,
+	CategoryID INTEGER REFERENCES web.Categories(CategoryID)
+);
 
 CREATE TABLE web.Images(
 	ImageID SERIAL PRIMARY KEY,
 	ImagePath TEXT NOT NULL
-)
+);
 
 CREATE TABLE web.ProductImages(
-	ProductID INTEGER REFERENCES web.Products(ProductID) NOT NULL,
-	ImageID INTEGER REFERENCES web.Images(ImageID) NOT NULL
-)
+	ProductID INTEGER REFERENCES web.Products(ProductID) ON DELETE CASCADE,
+	ImageID INTEGER REFERENCES web.Images(ImageID)
+);
 
 CREATE USER php WITH ENCRYPTED PASSWORD 'twm1234';
 GRANT ALL PRIVILEGES ON DATABASE ecommerce TO php;
 GRANT ALL PRIVILEGES ON SCHEMA web TO php;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA web TO php;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA web TO php;
