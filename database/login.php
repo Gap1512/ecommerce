@@ -1,10 +1,12 @@
 <?php
 
+function login($table, $admin){
+
     require 'database-connection.php';
 
     $connection=databaseConnection();
 
-    pg_prepare($connection, "details", 'SELECT * FROM web.Customers WHERE email=$1 AND password=$2');
+    pg_prepare($connection, "details", 'SELECT * FROM web.'.$table.' WHERE email=$1 AND password=$2');
 
     $result=pg_execute($connection, "details", array($_POST['customerEmail'], $_POST['customerPassword']));
         $details=pg_fetch_assoc($result);
@@ -18,13 +20,19 @@
         $_SESSION['customerBirthDate'] = $details['birthdate'];  
         $_SESSION['customerAdress'] = $details['adress'];  
         $_SESSION['customerCEP'] = $details['cep'];
-        $_SESSION['admin'] = FALSE;
+        $_SESSION['admin'] = $admin;
 
         echo 'Success';
     }
 
-    else echo 'User not found, please <a href="/ecommerce/create-account.html" target="_blank">create an account</a><br>';
+    else echo 'Incorrect email or password, please 
+        <a href="/ecommerce/login.html" target="_blank">try again </a> or <a href="/ecommerce/create-account.html" target="_blank">create an account</a><br>';
 
     pg_close($connection);
+
+}
+
+    if (!isset($_POST['admin'])) login('Customers', FALSE);
+    else login('Managers', TRUE);
 
 ?>

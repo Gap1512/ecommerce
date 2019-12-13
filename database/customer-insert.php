@@ -1,10 +1,12 @@
 <?php
 
+function register($table, $admin){
+
     require 'database-connection.php';
 
     $connection=databaseConnection();
 
-    pg_prepare($connection, "insert", 'INSERT INTO web.Customers(Email, Password, FirstName, LastName, CPF, BirthDate, Adress, Cep) VALUES($1, $2, $3, $4, $5, $6, $7, $8)');
+    pg_prepare($connection, "insert", 'INSERT INTO web.'.$table.'(Email, Password, FirstName, LastName, CPF, BirthDate, Adress, Cep) VALUES($1, $2, $3, $4, $5, $6, $7, $8)');
 
     include 'init-customers-fields.php';
 
@@ -22,5 +24,10 @@
     else echo 'An error ocurred, it was not possible to create an account';
 
     pg_close($connection);
+
+}
+
+    if (!isset($_POST['admin'])) register('Customers', FALSE);
+    else register('Managers', TRUE);
 
 ?>
