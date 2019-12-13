@@ -18,8 +18,8 @@
          <textarea name="productDescription" placeholder="Description"></textarea><br>
 
          <?php
-             require 'database-connection.php';
-             include 'brands-selection.php';
+             require 'database/database-connection.php';
+             include 'database/brands-selection.php';
              echo '<a href="/ecommerce/brands-register.php" target="_blank">New Brand</a><br>';
              include 'categories-selection.php';
              echo '<a href="/ecommerce/categories-register.php" target="_blank">New Category</a><br>';
