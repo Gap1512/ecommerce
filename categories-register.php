@@ -15,8 +15,8 @@
         <h1>Registered categories</h1>
 
         <?php
-             require 'database-connection.php';
-             include 'categories-selection.php';
+             require 'database/database-connection.php';
+             include 'database/categories-selection.php';
         ?>
 
         <input type="submit" name="categoryModify" value="Details">

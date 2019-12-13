@@ -16,8 +16,8 @@
         <h1>Registered brands</h1>
 
         <?php
-             require 'database-connection.php';
-             include 'brands-selection.php';
+             require 'database/database-connection.php';
+             include 'database/brands-selection.php';
         ?>
 
         <input type="submit" name="brandModify" value="Details">
