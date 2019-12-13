@@ -1,13 +1,13 @@
 <?php
 
-    require 'database-connection.php';
+    require 'database/database-connection.php';
 
     $connection=databaseConnection();
 
     pg_prepare($connection, "details", 'SELECT * FROM web.Products WHERE productid=$1');
     pg_prepare($connection, "delete", 'DELETE FROM web.Products WHERE productid=$1');
 
-    include 'init-products-fields.php';
+    include 'database/init-products-fields.php';
 
     if ($_POST['productModify'] == 'Delete'){
         

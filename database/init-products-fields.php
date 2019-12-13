@@ -11,7 +11,5 @@
     if(!isset($_POST['productCEP'])) $_POST['productCEP'] = NULL;
     if(!isset($_POST['Brands'])) $_POST['Brands'] = NULL;
     if(!isset($_POST['Categories'])) $_POST['Categories'] = NULL;
-    if(!isset($_POST['productModify'])) $_POST['productModify'] = NULL;
-    if(!isset($_POST['Products'])) $_POST['Products'] = NULL;
 
 ?>

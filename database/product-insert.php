@@ -11,25 +11,27 @@
 
     include 'init-products-fields.php';
 
-    $result = pg_fetch_result(pg_execute($connection, "insert",
-                              array($_POST['productName'],
-                                    $_POST['productPrice'],
-                                    $_POST['productDescription'],
-                                    $_POST['productStock'],
-                                    $_POST['productWeight'],
-                                    $_POST['productVolume'],
-                                    $_POST['productRating'],
-                                    $_POST['productAdress'],
-                                    $_POST['productCEP'])), 0, 0); //ID is returned from query
+    $result = pg_execute($connection, "insert",
+              array($_POST['productName'],
+                    $_POST['productPrice'],
+                    $_POST['productDescription'],
+                    $_POST['productStock'],
+                    $_POST['productWeight'],
+                    $_POST['productVolume'],
+                    $_POST['productRating'],
+                    $_POST['productAdress'],
+                    $_POST['productCEP']));
+
+    $id=pg_fetch_result($result, 0, 0);
 
     if ($result !== FALSE){
         
         foreach($_POST['Brands'] as $brand) {
-            pg_execute($connection, "brands", array($result, $brand));
+            pg_execute($connection, "brands", array($id, $brand));
         }
                 
         foreach($_POST['Categories'] as $category) {
-            pg_execute($connection, "categories", array($result, $category));
+            pg_execute($connection, "categories", array($id, $category));
         }
 
         echo 'Product inserted on database';

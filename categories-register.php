@@ -5,13 +5,13 @@
     <title>Categories Register</title>
 </head>
 <body>
-    <form id="categories-register" action="/ecommerce/category-insert.php" method="post">
+    <form id="categories-register" action="/ecommerce/database/category-insert.php" method="post">
          <h1>Register a new category</h1>
          <input type="text" name="categoryName" placeholder="Name" autofocus><br>
          <input type="submit" value="Register">
      </form>
 
-     <form id="category-modify" action="/ecommerce/category-modify.php" method="post">
+     <form id="category-modify" action="/ecommerce/database/category-modify.php" method="post">
         <h1>Registered categories</h1>
 
         <?php

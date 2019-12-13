@@ -8,23 +8,21 @@
     <table class="table table-borded table-responsive table-striped " id="table-list">
         <thead class="table-dark">
             <tr>
-                <th>ID </td>
-                <th>Name </td>
-                <th>Price </td>
-                <th>Description </td>
-                <th>Stock </td>
-                <th>Weight </td>
-                <th>Volume</td>
-                <th>Rating </td>
-                <th>Adress </td>
-                <th>CEP </td>
+                <th>ID </th>
+                <th>Email </th>
+                <th>First Name </th>
+                <th>Last Name </th>
+                <th>CPF </th>
+                <th>Birth Date </th>
+                <th>Adress </th>
+                <th>CEP </th>
             </tr>
         </thead>
         <tbody>
         
             <?php
                 require 'database/database-connection.php';
-                include 'database/products-selection.php';
+                include 'database/customers-selection.php';
             ?>
 
         </tbody>

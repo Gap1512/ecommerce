@@ -5,7 +5,7 @@
     <title>Products Register</title>
 </head>
 <body>
-    <form id="product-register" action="/ecommerce/product-insert.php" method="post">
+    <form id="product-register" action="/ecommerce/database/product-insert.php" method="post">
          <h1>Register a new product</h1>
          <input type="text" name="productName" placeholder="Name" autofocus><br>
          <input type="number" min="0" step="0.01" name="productPrice" placeholder="Price"><br>
@@ -21,7 +21,7 @@
              require 'database/database-connection.php';
              include 'database/brands-selection.php';
              echo '<a href="/ecommerce/brands-register.php" target="_blank">New Brand</a><br>';
-             include 'categories-selection.php';
+             include 'database/categories-selection.php';
              echo '<a href="/ecommerce/categories-register.php" target="_blank">New Category</a><br>';
          ?>
  
