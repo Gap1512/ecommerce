@@ -16,6 +16,7 @@
                 <th>Birth Date </th>
                 <th>Adress </th>
                 <th>CEP </th>
+                <th>User Type </th>
             </tr>
         </thead>
         <tbody>
