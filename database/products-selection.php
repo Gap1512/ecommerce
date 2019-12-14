@@ -6,7 +6,7 @@
 
     while($product=pg_fetch_assoc($result)){
         echo '<tr><td>'.$product['productid'].'</td>';
-        echo '<td>'.$product['productname'].'</td>';
+        echo '<td><a href="/ecommerce/products-details.php?productID='.$product['productid'].'">'.$product['productname'].'</a></td>';
         echo '<td>'.$product['productprice'].'</td>';
         echo '<td>'.$product['productdescription'].'</td>';
         echo '<td>'.$product['productstock'].'</td>';

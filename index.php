@@ -7,10 +7,16 @@
 </head>
 <body>
   <?php include 'navbar.php' ?>
+<<<<<<< HEAD
   <?php //loginInfo(); ?>
   <div class="container">
     <input style="margin: 20px"class="form-control" type="text" placeholder="Search" aria-label="Search">
     <div class="row">
+=======
+  <a href="/ecommerce/create-account.php">
+    <button type="button">Create an Account</button>
+  </a><br>
+>>>>>>> 63059b787bd4278a2a5a9cd91d30c59bb1444d7d
 
       <div class="col-lg-3">
         <h3 class="my-4">Categorias</h3>

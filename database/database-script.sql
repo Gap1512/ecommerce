@@ -29,7 +29,8 @@ CREATE TABLE web.Products(
 	ProductVolume REAL NOT NULL,
 	ProductRating SMALLINT DEFAULT 0,
 	ProductAdress TEXT NOT NULL,
-	ProductCEP INTEGER NOT NULL
+	ProductCEP INTEGER NOT NULL,
+	ProductImage TEXT
 );
 
 CREATE TABLE web.Orders(
@@ -65,16 +66,6 @@ CREATE TABLE web.Categories(
 CREATE TABLE web.ProductCategories(
 	ProductID INTEGER REFERENCES web.Products(ProductID) ON DELETE CASCADE,
 	CategoryID INTEGER REFERENCES web.Categories(CategoryID)
-);
-
-CREATE TABLE web.Images(
-	ImageID SERIAL PRIMARY KEY,
-	ImagePath TEXT NOT NULL
-);
-
-CREATE TABLE web.ProductImages(
-	ProductID INTEGER REFERENCES web.Products(ProductID) ON DELETE CASCADE,
-	ImageID INTEGER REFERENCES web.Images(ImageID)
 );
 
 GRANT ALL PRIVILEGES ON DATABASE ecommerce TO php;
