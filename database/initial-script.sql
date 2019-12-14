@@ -26,3 +26,37 @@ INSERT INTO web.Products(ProductName, ProductPrice, ProductDescription, ProductS
         ('Fiat 147 - Ano 84', 14900.00, 'Fiat 147 - Ano 84', 314, 898.48, 164.863, 0.55, 'Quadra SQNW 307 Bloco J', 79100440, '/ecommerce/images/Fiat 147 - Ano 84.png'),
         ('BMW M5', 695000.00, 'BMW M5', 461, 831.996, 220.572, 0.87, 'Rua 7', 69312453, '/ecommerce/images/BMW M5.png'),
         ('Chevrolet Camaro', 333990.00, 'Chevrolet Camaro', 470, 157.484, 775.389, 3.37, 'Rua Divina Pastora', 91130080, '/ecommerce/images/Chevrolet Camaro.png');
+
+INSERT INTO web.ProductBrands(ProductID, BrandID) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+INSERT INTO web.ProductCategories(ProductID, CategoryID) VALUES
+(1, 1),
+(2, 1),
+(3, 1),
+(4, 2),
+(5, 2),
+(6, 2),
+(7, 3),
+(8, 3),
+(9, 3),
+(10, 4),
+(11, 4),
+(12, 4),
+(13, 5),
+(14, 5),
+(15, 5);
