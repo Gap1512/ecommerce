@@ -1,3 +1,5 @@
+<?php require 'user-validation.php'; validadeUser(TRUE); ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>

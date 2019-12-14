@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
 function login($table, $admin){
 
     require 'database-connection.php';
@@ -12,17 +14,19 @@ function login($table, $admin){
         $details=pg_fetch_assoc($result);
 
     if ($details !== FALSE) {
-        session_start();
+        
         $_SESSION['customerEmail'] = $details['email'];
         $_SESSION['customerFirstName'] = $details['firstname'];  
         $_SESSION['customerLastName'] = $details['lastname'];
         $_SESSION['customerCPF'] = $details['cpf'];
         $_SESSION['customerBirthDate'] = $details['birthdate'];  
-        $_SESSION['customerAdress'] = $details['adress'];  
+        $_SESSION['customerAdress'] = $details['adress'];
         $_SESSION['customerCEP'] = $details['cep'];
         $_SESSION['admin'] = $admin;
 
-        echo 'Success';
+        header("Location: /ecommerce/initial-page.php");
+        die();
+        
     }
 
     else echo 'Incorrect email or password, please 

@@ -20,7 +20,10 @@ function register($table, $admin){
                     $_POST['customerAdress'],
                     $_POST['customerCEP']));
 
-    if ($result !== FALSE) echo 'Success!';
+    if ($result !== FALSE) {
+        header("Location: /ecommerce/initial-page.php");
+        die();
+    }
     else echo 'An error ocurred, it was not possible to create an account';
 
     pg_close($connection);

@@ -1,3 +1,5 @@
+<?php require 'user-validation.php'; validadeUser(TRUE); ?>
+
 <head>
 <link rel="stylesheet" href="css/fontawesome/css/all.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">

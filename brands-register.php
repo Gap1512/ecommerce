@@ -1,3 +1,5 @@
+<?php require 'user-validation.php'; validadeUser(TRUE); ?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -5,6 +7,7 @@
     <title>Brands Register</title>
 </head>
 <body>
+     
     <form id="brand-register" action="/ecommerce/database/brand-insert.php" method="post">
          <h1>Register a new brand</h1>
          <input type="text" name="brandName" placeholder="Name" autofocus><br>
