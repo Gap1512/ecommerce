@@ -26,7 +26,7 @@
         
             <?php
                 require 'database/database-connection.php';
-                include 'database/products-selection.php';
+                include 'database/cart-selection.php';
             ?>
 
         </tbody>
