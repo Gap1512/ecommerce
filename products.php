@@ -1,4 +1,4 @@
-<?php require 'user-validation.php'; validadeUser(); ?>
+<?php require 'user-validation.php'; loginInfo(); ?>
 
 <head>
 <link rel="stylesheet" href="css/fontawesome/css/all.css">
