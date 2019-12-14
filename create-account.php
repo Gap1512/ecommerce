@@ -5,6 +5,7 @@
     <title>Create Account</title>
 </head>
 <body>
+    <?php include 'navbar.php' ?>
     <form id="customer-register" action="/ecommerce/database/customer-insert.php" method="post">
          <h1>Create Account</h1>
          <input type="text" name="customerEmail" placeholder="Email" autofocus><br>

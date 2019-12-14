@@ -1,5 +1,3 @@
-<?php require 'user-validation.php'; validadeUser(TRUE); ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -7,6 +5,8 @@
     <title>Products Register</title>
 </head>
 <body>
+    <?php include 'navbar.php' ?>
+    <?php validadeUser(TRUE); ?>
     <form id="product-register" action="/ecommerce/database/product-insert.php" method="post">
          <h1>Register a new product</h1>
          <input type="text" name="productName" placeholder="Name" autofocus><br>

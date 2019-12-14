@@ -5,6 +5,7 @@
     <title>Login</title>
 </head>
 <body>
+    <?php include 'navbar.php' ?>
     <form id="login" action="/ecommerce/database/login.php" method="post">
          <h1>Login</h1>
               

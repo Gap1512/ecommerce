@@ -1,5 +1,3 @@
-<?php require 'user-validation.php'; validadeUser(TRUE); ?>
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -7,6 +5,8 @@
     <title>Categories Register</title>
 </head>
 <body>
+    <?php include 'navbar.php' ?>
+    <?php validadeUser(TRUE); ?>
     <form id="categories-register" action="/ecommerce/database/category-insert.php" method="post">
          <h1>Register a new category</h1>
          <input type="text" name="categoryName" placeholder="Name" autofocus><br>

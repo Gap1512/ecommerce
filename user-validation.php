@@ -24,6 +24,23 @@ function loginInfo(){
         echo '<input type="submit" value="Logout"></form><br>';
     }
 }
-        
+
+function getUserCompleteName(){
+    if(isLoggedIn()){
+        return $_SESSION['customerFirstName']." ".$_SESSION['customerLastName'];
+    }
+    return "";
+}
+
+function isLoggedIn(){
+    if(isset($_SESSION['customerFirstName']) and isset($_SESSION['customerLastName'])){
+        return true;
+    }
+    return false;
+}
+
+function setStyleVisibility($boolFunction,$inverse = false){
+    if(!$boolFunction() xor $inverse) echo 'style="display:none;"';
+}
 
 ?>
