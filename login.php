@@ -15,7 +15,7 @@
 	 <label for="adminCheckBox"> Administrator </label><br>
 	 
          <input type="submit" value="Login">
-	 <a href="/ecommerce/create-account.html" target="_blank">Create an Account</a>
+	 <a href="/ecommerce/create-account.php" target="_blank">Create an Account</a>
      </form>
 
 </body>

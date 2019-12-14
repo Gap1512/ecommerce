@@ -1,5 +1,3 @@
-<?php require 'user-validation.php'; loginInfo(); ?>
-
 <head>
 <link rel="stylesheet" href="css/fontawesome/css/all.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
@@ -10,16 +8,10 @@
     <table class="table table-borded table-responsive table-striped " id="table-list">
         <thead class="table-dark">
             <tr>
-                <th>ID </td>
-                <th>Name </td>
-                <th>Price </td>
-                <th>Description </td>
-                <th>Stock </td>
-                <th>Weight </td>
-                <th>Volume</td>
-                <th>Rating </td>
-                <th>Adress </td>
-                <th>CEP </td>
+                <th>Name </th>
+                <th>Price </th>
+                <th>Quantity </th>
+                <th>Total Price </th>
             </tr>
         </thead>
         <tbody>
@@ -31,7 +23,6 @@
 
         </tbody>
     </table>
-    <button class="btn btn-info" id="add"><span class="fas fa-plus-circle"></span> Add New Members</button>
 </div>
 
     <script type="text/javascript" src="js/bootstrap/jquery.min.js"></script>

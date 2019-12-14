@@ -6,7 +6,6 @@
 </head>
 <body>
   <?php include 'navbar.php' ?>
-  <?php loginInfo(); ?>
   <a href="/ecommerce/create-account.php">
     <button type="button">Create an Account</button>
   </a><br>
