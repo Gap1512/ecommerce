@@ -1,11 +1,11 @@
-<?php require 'user-validation.php'; validadeUser(TRUE); ?>
-
 <head>
 <link rel="stylesheet" href="css/fontawesome/css/all.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+<?php include 'bootstrap_include.php' ?>
 <link rel="stylesheet" href="css/produtos.css">
 
 </head>
+<?php include 'navbar.php' ?>
+<?php validadeUser(TRUE); ?>
 <div class="table-content">
     <table class="table table-borded table-responsive table-striped " id="table-list">
         <thead class="table-dark">

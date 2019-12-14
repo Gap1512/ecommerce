@@ -1,11 +1,13 @@
-<?php require 'user-validation.php'; loginInfo(); ?>
-
 <head>
 <link rel="stylesheet" href="css/fontawesome/css/all.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="css/produtos.css">
+<?php include 'bootstrap_include.php'?>
+<script type="text/javascript" src="js/editable-table.js"></script>
+
 
 </head>
+<body>
+<?php include 'navbar.php' ?>
 <div class="table-content">
     <table class="table table-borded table-responsive table-striped " id="table-list">
         <thead class="table-dark">
@@ -31,9 +33,9 @@
 
         </tbody>
     </table>
-    <button class="btn btn-info" id="add"><span class="fas fa-plus-circle"></span> Add New Members</button>
+    <a href="/ecommerce/products-register.php">
+        <button class="btn btn-info" id="add"><span class="fas fa-plus-circle"></span> Add New Products</button>
+    </a>
 </div>
-
-    <script type="text/javascript" src="js/bootstrap/jquery.min.js"></script>
-    <script type="text/javascript" src="js/editable-table.js"></script>
-    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+</body>
+    

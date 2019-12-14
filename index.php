@@ -5,14 +5,13 @@
     <title>Main Page</title>
 </head>
 <body>
-
-  <?php include 'user-validation.php'; loginInfo(); ?>
-  
-  <a href="/ecommerce/create-account.html">
+  <?php include 'navbar.php' ?>
+  <?php loginInfo(); ?>
+  <a href="/ecommerce/create-account.php">
     <button type="button">Create an Account</button>
   </a><br>
 
-  <a href="/ecommerce/login.html">
+  <a href="/ecommerce/login.php">
     <button type="button">Login</button>
   </a><br>
 
