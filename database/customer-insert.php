@@ -21,7 +21,7 @@ function register($table, $admin){
                     $_POST['customerCEP']));
 
     if ($result !== FALSE) {
-        header("Location: /ecommerce/initial-page.php");
+        header("Location: /ecommerce/index.php");
         die();
     }
     else echo 'An error ocurred, it was not possible to create an account';

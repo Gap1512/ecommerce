@@ -13,6 +13,17 @@ function validadeUser($adminOnly=FALSE){
             die;
         }
     }
+    loginInfo();
 }
+
+function loginInfo(){
+    if(isset($_SESSION['customerFirstName']) and isset($_SESSION['customerLastName'])){
+        echo "You are logged as ".$_SESSION['customerFirstName']." ".$_SESSION['customerLastName'];
+        echo '<form action="/ecommerce/logout.php" method="post">';
+        echo '<input type="hidden" name="returnPage" value='.$_SERVER["REQUEST_URI"].'>';
+        echo '<input type="submit" value="Logout"></form><br>';
+    }
+}
+        
 
 ?>

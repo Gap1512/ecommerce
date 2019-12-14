@@ -5,6 +5,8 @@
     <title>Main Page</title>
 </head>
 <body>
+
+  <?php include 'user-validation.php'; loginInfo(); ?>
   
   <a href="/ecommerce/create-account.html">
     <button type="button">Create an Account</button>

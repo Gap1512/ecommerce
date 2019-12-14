@@ -24,7 +24,7 @@ function login($table, $admin){
         $_SESSION['customerCEP'] = $details['cep'];
         $_SESSION['admin'] = $admin;
 
-        header("Location: /ecommerce/initial-page.php");
+        header("Location: /ecommerce/index.php");
         die();
         
     }
