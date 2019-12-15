@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="css/produtos.css">
 
 </head>
+<body>
+<?php include 'navbar.php' ?>
 <div class="table-content">
     <table class="table table-borded table-responsive table-striped " id="table-list">
         <thead class="table-dark">
@@ -28,3 +30,5 @@
     <script type="text/javascript" src="js/bootstrap/jquery.min.js"></script>
     <script type="text/javascript" src="js/editable-table.js"></script>
     <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+                                      
+</body>

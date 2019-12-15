@@ -28,6 +28,9 @@
         <li class="nav-item">
             <a class="nav-link" href="/ecommerce/categories-register.php">Categories</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/ecommerce/cart.php">Cart</a>
+        </li>
         </ul>
         <ul class="navbar-nav" id="navbarNavUser" <?php echo setStyleVisibility('isLoggedIn',true)?>>
         <li class="nav-item">

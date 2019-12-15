@@ -22,10 +22,12 @@
             echo '<strong>Avaliações: </strong>'.$product["productrating"].'<br>';
             echo '<strong>Endereço do produto: </strong>'.$product["productadress"].'<br>';
             echo '<strong>CEP: </strong>'.$product["productcep"].'<br>';
+            echo '<form  action="/ecommerce/add-to-cart.php" method="post">
+                  <input type="text" name="productQuantity" placeholder="Quantity" autofocus>
+                  <input type="hidden" name="productID" value='.$productID.'>
+                  <input type="submit" value="Add to cart">
+              </form>';
         ?>
-        <form action="adicionar_ao_carrinho.php" method="GET" style="margin:10px">
-            <input type="submit" value="Adicionar ao Carrinho"></input>
-        </form>
     </div>
 </body>
 </html>

@@ -1,7 +1,5 @@
 <?php
 
-    session_start();
-
 if(!isset($_SESSION['productsList'])) $_SESSION['productsList'] = NULL;
 else {
 
