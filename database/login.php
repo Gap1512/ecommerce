@@ -30,7 +30,7 @@
         }
 
         else echo 'Incorrect email or password, please 
-            <a href="/ecommerce/login.html" target="_blank">try again </a> or <a href="/ecommerce/create-account.html" target="_blank">create an account</a><br>';
+            <a href="/ecommerce/login.php" target="_blank">try again </a> or <a href="/ecommerce/create-account.php" target="_blank">create an account</a><br>';
 
         pg_close($connection);
     }
