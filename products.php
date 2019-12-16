@@ -22,7 +22,7 @@
                 <th>CEP </td>
                 <th tipo="select" selection="brands">Brand</th>
                 <th tipo="select" selection="categories">Category</th>
-                <th name="buttons"></th>
+                <th name="buttons" style="display:none"></th>
             </tr>
         </thead>
         <tbody>
