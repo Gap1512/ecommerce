@@ -11,20 +11,24 @@ function register($table, $admin){
     include 'init-customers-fields.php';
 
     $result = pg_execute($connection, "insert",
-              array($_POST['email'],
-              $_POST['password'],
-                    $_POST['firstname'],
-                    $_POST['lastname'],
-                    $_POST['cpf'],
-                    $_POST['birthdate'],
-                    $_POST['adress'],
-                    $_POST['cep'],
-                    ));
+                         array($_POST['customerEmail'],
+                               $_POST['customerPassword'],
+                               $_POST['customerFirstName'],
+                               $_POST['customerLastName'],
+                               $_POST['customerCPF'],
+                               $_POST['customerBirthDate'],
+                               $_POST['customerAdress'],
+                               $_POST['customerCEP'],
+                         ));
 
 
     $id=pg_fetch_result($result, 0, 0);
     pg_close($connection);
-    echo $id;
+
+    // echo $id;
+
+    header("Location: /ecommerce/index.php");
+    die();
 }
 
     if (!isset($_POST['admin'])) register('Customers', FALSE);

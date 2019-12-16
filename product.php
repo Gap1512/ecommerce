@@ -12,7 +12,7 @@
             $productID = $_GET["product_id"];
             $products = loadValuesFromDB("select * from web.Products where ProductID =" . $productID);
             $product = $products[0];
-            echo "<img src='images/iphoneX.jpg'></img><br>";
+            echo '<img src="'.$product["productimage"].'"></img><br>';
             echo '<strong>Nome do Produto: </strong>'.$product["productname"].'<br>';
             echo '<strong>Preço: </strong>'.$product["productprice"].'<br>';
             echo '<strong>Descrição do Produto: </strong>'.$product["productdescription"].'<br>';

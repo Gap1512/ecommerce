@@ -34,6 +34,5 @@
 
         </tbody>
     </table>
-    <button class="btn btn-info" id="add"><span class="fas fa-plus-circle"></span> Add New Members</button>
 </div>
 

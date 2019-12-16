@@ -67,7 +67,7 @@
             echo '
               <div class="col-lg-4 col-md-6 mb-4">
                 <div class="card h-100">
-                  <a href='.$redirect.'><img class="card-img-top" src="images/iphoneX.jpg" alt=""></a>
+                  <a href='.$redirect.'><img class="card-img-top" src="'.$product["productimage"].'" alt=""></a>
                   <div class="card-body">
                     <h4 class="card-title">
                       <a href='.$redirect.'>'.$product["productname"].'</a>

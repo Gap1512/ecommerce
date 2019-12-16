@@ -25,6 +25,7 @@ require 'database-connection.php';
         echo '<td tipo="select">';
         include 'categories-selection.php';
         echo '</td>';
+        echo '<td>'.$product['productimage'].'</td>';
         echo '</tr>';
     }
 

@@ -11,8 +11,6 @@
               
          <input type="text" name="customerEmail" placeholder="Email" autofocus><br>
          <input type="password" name="customerPassword" placeholder="Password"><br>
-	 <input type="checkbox" id="adminCheckBox" name="admin" value=TRUE>
-	 <label for="adminCheckBox"> Administrator </label><br>
 	 
          <input type="submit" value="Login">
 	 <a href="/ecommerce/create-account.php" target="_blank">Create an Account</a>

@@ -7,6 +7,7 @@
 
 <body>
 <?php include 'navbar.php' ?>
+<?php validadeUser(TRUE); ?>
 <div class="table-content">
     <table class="table table-borded table-responsive table-striped products" id="table-list" tabela="products" campo="productid">
         <thead class="table-dark">
@@ -23,6 +24,7 @@
                 <th>CEP </td>
                 <th tipo="select" selection="brands">Brand</th>
                 <th tipo="select" selection="categories">Category</th>
+                <th>Image Path </td>
                 <th name="buttons" style="display:none"></th>
             </tr>
         </thead>

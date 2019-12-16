@@ -16,8 +16,10 @@
          <input type="date" name="customerBirthDate" placeholder="Birth Date"><br>
          <input type="text" name="customerAdress" placeholder="Adress"><br>
          <input type="number" min="0" name="customerCEP" placeholder="CEP"><br>
-	 <input type="checkbox" id="adminCheckBox" name="admin" value=TRUE>
-	 <label for="adminCheckBox"> Administrator </label><br>
+
+	     <input type="checkbox" id="adminCheckBox" name="admin" value=TRUE>
+	     <label for="adminCheckBox"> Administrator </label><br>
+
  
          <input type="submit" value="Register">
      </form>
