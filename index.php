@@ -92,6 +92,6 @@
 
   </div>
 
-  <script type="text/javascript" src="js/filters.js"
+  <script type="text/javascript" src="js/filters.js"></script>
 </body>
 </html>
