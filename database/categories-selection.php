@@ -19,6 +19,5 @@
 
     echo '</select><br>';
 
-    pg_close($connection);
 
 ?>
