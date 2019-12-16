@@ -98,6 +98,76 @@ function ModoEdicion($row) {
     }
 }
 function rowAcep(but) {
+    //Verificar se item já existe ou não
+    var tabela = $(but).parents('table').attr('tabela');
+    var campo = $(but).parents('table').attr('campo');
+    var id = $(but).parents('tr')[0].cells[0].innerText;
+
+    if(id!='' && id!=undefined){
+        updateDb(but, id);
+    }
+    else{
+        insertDb(but);
+    }
+
+/*     $.ajax({
+        url:'./database/check-id.php',
+        type:'POST',
+        data: {'tabela': tabela, 'campo': campo, 'id': id},
+        success: function(response){
+            if(response==1){
+                updateDb(but, id);
+            }
+            else{
+                insertDb(but);
+            }
+        }
+    }); */
+}
+
+function insertDb(but){
+    var post_url = './database/product-insert.php';
+    //Faz o submit dos inputs
+    var $row = $(but).parents('tr');  //accede a la fila
+    var $cols = $row.find('td');  //lee campos
+    var id_col = $cols[0];
+    $cols.splice(0,1);
+
+
+    //Cria formulário
+    var i = 1;
+    var formHtml = "<form id='form' method='post' style='display: none'>";
+
+    IterarCamposEdit($cols, function($td){
+        let name = $('th')[i].innerText.toLowerCase();
+        if($td.attr('tipo') == 'select')
+            formHtml += "<input value='" + $td.find('select').val() + "' name='" + name + "'>";
+        else   
+            formHtml += "<input value='" + $td.find('input').val() + "' name='" + name + "'>";
+        i++;
+    });
+    formHtml += "<input type='submit'></form>";
+    $row.append(formHtml);
+    //
+
+
+    var form = $row.find('form');
+
+    form.submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url:post_url,
+            type:'post',
+            data: form.serialize(),
+            success: function(id){
+                id_col.innerText = id;
+            }
+        });
+    });
+
+    form.submit();
+    form.remove();
+
 //Acepta los cambios de la edición
     var $row = $(but).parents('tr');  //accede a la fila
     var $cols = $row.find('td');  //lee campos
@@ -110,6 +180,59 @@ function rowAcep(but) {
     FijModoNormal(but);
     params.onEdit($row);
 }
+
+function updateDb(but, id){
+    var post_url = './database/products-update.php';
+    //Faz o submit dos inputs
+    var $row = $(but).parents('tr');  //accede a la fila
+    var $cols = $row.find('td');  //lee campos
+    $cols.splice(0,1);
+
+    //Cria formulário
+    var i = 1;
+    var formHtml = "<form id='form' method='post' style='display: none'>";
+
+    IterarCamposEdit($cols, function($td){
+        let name = $('th')[i].innerText.toLowerCase();
+        if($td.attr('tipo') == 'select')
+            formHtml += "<input value='" + $td.find('select').val() + "' name='" + name + "'>";
+        else   
+            formHtml += "<input value='" + $td.find('input').val() + "' name='" + name + "'>";
+        i++;
+    });
+
+    formHtml += "<input name='id' value='"+id+"'>";
+    formHtml += "<input type='submit'></form>";
+    $row.append(formHtml);
+    //
+
+
+    var form = $row.find('form');
+
+    form.submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url:post_url,
+            type:'post',
+            data: form.serialize(),
+        });
+    });
+
+    form.submit();
+    form.remove();
+//Acepta los cambios de la edición
+    var $row = $(but).parents('tr');  //accede a la fila
+    var $cols = $row.find('td');  //lee campos
+    if (!ModoEdicion($row)) return;  //Ya está en edición
+    //Está en edición. Hay que finalizar la edición
+    IterarCamposEdit($cols, function($td) {  //itera por la columnas
+      var cont = $td.find('input').val(); //lee contenido del input
+      $td.html(cont);  //fija contenido y elimina controles
+    });
+    FijModoNormal(but);
+    params.onEdit($row);
+}
+
 function rowCancel(but) {
 //Rechaza los cambios de la edición
     var $row = $(but).parents('tr');  //accede a la fila
@@ -125,7 +248,14 @@ function rowCancel(but) {
 function rowEdit(but) {  //Inicia la edición de una fila
     var $row = $(but).parents('tr');  //accede a la fila
     var $cols = $row.find('td');  //lee campos
+    var tabela = $(but).parents('table').attr('tabela');
+    $cols.splice(0,1);
+
+    if(tabela == 'products')
+        $cols.splice(9,2);
+
     if (ModoEdicion($row)) return;  //Ya está en edición
+
     //Pone en modo de edición
     IterarCamposEdit($cols, function($td) {  //itera por la columnas
         var cont = $td.html(); //lee contenido
@@ -137,10 +267,35 @@ function rowEdit(but) {  //Inicia la edición de una fila
 }
 function rowElim(but) {  //Elimina la fila actual
     var $row = $(but).parents('tr');  //accede a la fila
+    var tabela = $(but).parents('table').attr('tabela');
+    var id = $(but).parents('tr')[0].cells[0].innerText;
+    
+    if(tabela == 'products')
+        var post_url = './database/product-delete.php'
+
+    $row.append("<form id='form' method='post'><input value='"+id+"' name='id'>  <input type='submit'>  </form>");
+
+    var form = $row.find('form');
+    console.log(form.html());
+    form.submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url:post_url,
+            type:'post',
+            data: form.serialize(),
+        });
+    });
+    form.submit();
+    form.remove();
+
     params.onBeforeDelete($row);
     $row.remove();
     params.onDelete();
+
+
 }
+
+
 function rowAddNew(tabId) {  //Agrega fila a la tabla indicada.
 var $tab_en_edic = $("#" + tabId);  //Table to edit
     var $filas = $tab_en_edic.find('tbody tr');
@@ -151,15 +306,31 @@ var $tab_en_edic = $("#" + tabId);  //Table to edit
         //construye html
         var htmlDat = '';
         $cols.each(function() {
-            if ($(this).attr('name')=='buttons') {
+            if ($(this).attr('name') == 'buttons') {
                 //Es columna de botones
                 htmlDat = htmlDat + colEdicHtml;  //agrega botones
             } else {
-                htmlDat = htmlDat + '<td></td>';
+                if($(this).attr('tipo') == 'select'){
+                    var tabela = $tab_en_edic.attr('tabela');
+                    var selection = $(this).attr('selection');
+                    if(tabela == 'products'){
+                        htmlDat = htmlDat + '<td tipo="select">'+
+                        $.ajax({
+                            url:'./database/'+selection+'-selection-newrow.php',
+                            type:'post',
+                            dataType: "html",
+                            async:false
+                        }).responseText
+                        +'</td>';
+                    }
+                }
+                else
+                    htmlDat = htmlDat + '<td></td>';
             }
         });
         $tab_en_edic.find('tbody').append('<tr>'+htmlDat+'</tr>');
     } else {
+    
         //Hay otras filas, podemos clonar la última fila, para copiar los botones
         var $ultFila = $tab_en_edic.find('tr:last');
         $ultFila.clone().appendTo($ultFila.parent());  
@@ -169,12 +340,27 @@ var $tab_en_edic = $("#" + tabId);  //Table to edit
             if ($(this).attr('name')=='buttons') {
                 //Es columna de botones
             } else {
-                $(this).html('');  //limpia contenido
+                if($(this)[0].cellIndex == 0)
+                    $(this).html('');  //limpia contenido
             }
         });
     }
 	params.onAdd();
 }
+
+
+function getDropdownSelection(selection){
+    var result = null;
+    $.ajax({
+        url:'./database/'+selection+'-selection-newrow.php',
+        type:'get',
+        success: function(response){
+            result = response;
+        }
+    });
+    return result;
+}
+
 function TableToCSV(tabId, separator) {  //Convierte tabla a CSV
     var datFil = '';
     var tmp = '';

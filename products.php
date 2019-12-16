@@ -2,14 +2,12 @@
 <link rel="stylesheet" href="css/fontawesome/css/all.css">
 <link rel="stylesheet" href="css/produtos.css">
 <?php include 'bootstrap_include.php'?>
-<script type="text/javascript" src="js/editable-table.js"></script>
-
-
 </head>
+
 <body>
 <?php include 'navbar.php' ?>
 <div class="table-content">
-    <table class="table table-borded table-responsive table-striped " id="table-list">
+    <table class="table table-borded table-responsive table-striped " id="table-list" tabela="products" campo="productid">
         <thead class="table-dark">
             <tr>
                 <th>ID </td>
@@ -22,20 +20,22 @@
                 <th>Rating </td>
                 <th>Adress </td>
                 <th>CEP </td>
+                <th tipo="select" selection="brands">Brand</th>
+                <th tipo="select" selection="categories">Category</th>
+                <th name="buttons"></th>
             </tr>
         </thead>
         <tbody>
         
             <?php
-                require 'database/database-connection.php';
                 include 'database/products-selection.php';
             ?>
 
         </tbody>
     </table>
-    <a href="/ecommerce/products-register.php">
-        <button class="btn btn-info" id="add"><span class="fas fa-plus-circle"></span> Add New Products</button>
-    </a>
+    <button class="btn btn-info" id="add"><span class="fas fa-plus-circle"></span> Add New Products</button>
 </div>
+
 </body>
     
+<script type="text/javascript" src="js/editable-table.js"></script>

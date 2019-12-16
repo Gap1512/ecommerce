@@ -12,36 +12,26 @@
     include 'init-products-fields.php';
 
     $result = pg_execute($connection, "insert",
-              array($_POST['productName'],
-                    $_POST['productPrice'],
-                    $_POST['productDescription'],
-                    $_POST['productStock'],
-                    $_POST['productWeight'],
-                    $_POST['productVolume'],
-                    $_POST['productRating'],
-                    $_POST['productAdress'],
-                    $_POST['productCEP']));
+              array($_POST['name'],
+                    $_POST['price'],
+                    $_POST['description'],
+                    $_POST['stock'],
+                    $_POST['weight'],
+                    $_POST['volume'],
+                    $_POST['rating'],
+                    $_POST['adress'],
+                    $_POST['cep']));
 
     $id=pg_fetch_result($result, 0, 0);
 
     if ($result !== FALSE){
-        
-        foreach($_POST['Brands'] as $brand) {
-            pg_execute($connection, "brands", array($id, $brand));
-        }
+            pg_execute($connection, "brands", array($id, $_POST['brand']));
                 
-        foreach($_POST['Categories'] as $category) {
-            pg_execute($connection, "categories", array($id, $category));
-        }
-
-        echo 'Product inserted on database';
+            pg_execute($connection, "categories", array($id, $_POST['category']));
         
-    } else {
-        
-        echo 'An error ocurred, it was not possible to insert the product';
-    
     }
 
     pg_close($connection);
+    echo $id;
 
 ?>

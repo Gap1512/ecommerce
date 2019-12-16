@@ -9,9 +9,9 @@
 
     include 'database/init-products-fields.php';
 
-    if ($_POST['productModify'] == 'Delete'){
+    if ($_POST['modify'] == 'Delete'){
         
-        foreach($_POST['Products'] as $product) {
+        foreach($_POST['id'] as $product) {
             $result=pg_execute($connection, "delete", array($product));
             if ($result !== FALSE) echo "Product $product deleted from database";
             else echo "An error ocurred, it was not possible to delete";
@@ -19,7 +19,7 @@
     
     }
 
-    if ($_POST['productModify'] == 'Details'){
+    if ($_POST['modify'] == 'Details'){
 
         echo '<table>
                   <thead>
@@ -37,7 +37,7 @@
                   </tr>
                  <tbody>';
         
-        foreach($_POST['Products'] as $product) {
+        foreach($_POST['id'] as $product) {
             $details=pg_fetch_assoc(pg_execute($connection, "details", array($product)));
             echo '<tr>';
             echo '<td>'.$details['productid'].'</td>';

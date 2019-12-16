@@ -7,7 +7,7 @@
 <body>
     <?php include 'navbar.php' ?>
     <?php validadeUser(TRUE); ?>
-    <form id="product-register" action="/ecommerce/database/product-insert.php" method="post">
+    <form id="product-register" method="post">
          <h1>Register a new product</h1>
          <input type="text" name="productName" placeholder="Name" autofocus><br>
          <input type="number" min="0" step="0.01" name="productPrice" placeholder="Price"><br>
