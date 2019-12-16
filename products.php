@@ -1,13 +1,14 @@
 <head>
 <link rel="stylesheet" href="css/fontawesome/css/all.css">
 <link rel="stylesheet" href="css/produtos.css">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 <?php include 'bootstrap_include.php'?>
 </head>
 
 <body>
 <?php include 'navbar.php' ?>
 <div class="table-content">
-    <table class="table table-borded table-responsive table-striped " id="table-list" tabela="products" campo="productid">
+    <table class="table table-borded table-responsive table-striped products" id="table-list" tabela="products" campo="productid">
         <thead class="table-dark">
             <tr>
                 <th>ID </td>
@@ -28,6 +29,7 @@
         <tbody>
         
             <?php
+                header("Content-Type: text/html;charset=UTF-8");
                 include 'database/products-selection.php';
             ?>
 

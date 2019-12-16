@@ -14,7 +14,7 @@
 
       <div class="col-lg-3">
         <h3 class="my-4">Categorias</h3>
-        <div class="list-group">
+        <div class="list-group filter">
           <?php
             $categories = loadValuesFromDB("select * from web.Categories");
             foreach($categories as &$category){
@@ -32,7 +32,7 @@
         <div style="margin-top: 50px;">
           <h3 class="my-4">Marcas</h3>
         </div>
-        <div class="list-group">
+        <div class="list-group filter">
           <?php
             $brands = loadValuesFromDB("select * from web.Brands");
             foreach($brands as &$brand){
@@ -50,7 +50,7 @@
       </div>
       <!-- /.col-lg-3 -->
       <div class="col-lg-9">
-        <div class="row">
+        <div class="row" id="productsrow">
           <?php
           $products = loadValuesFromDB("select * from web.products");
           foreach($products as &$product){
@@ -92,5 +92,6 @@
 
   </div>
 
+  <script type="text/javascript" src="js/filters.js"
 </body>
 </html>

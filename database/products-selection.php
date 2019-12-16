@@ -2,6 +2,7 @@
 require 'database-connection.php';
 
     $connection = databaseConnection();
+    pg_set_client_encoding($connection, "UNICODE");
 
     $result=pg_query($connection, "SELECT * FROM web.products");
 

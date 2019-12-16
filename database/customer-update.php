@@ -1,16 +1,16 @@
 <?php
 
-function register($table, $admin){
 
     require 'database-connection.php';
 
     $connection=databaseConnection();
 
-    pg_prepare($connection, "insert", 'INSERT INTO web.'.$table.'(Email, Password, FirstName, LastName, CPF, BirthDate, Adress, Cep) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING customerid');
+    pg_prepare($connection, "update", 'UPDATE web.customers SET Email=$1, Password=$2, FirstName=$3, LastName=$4, CPF=$5, BirthDate=$6, Adress=$7, Cep=$8
+        WHERE customerid=$9');
 
     include 'init-customers-fields.php';
 
-    $result = pg_execute($connection, "insert",
+    $result = pg_execute($connection, "update",
               array($_POST['email'],
               $_POST['password'],
                     $_POST['firstname'],
@@ -19,15 +19,11 @@ function register($table, $admin){
                     $_POST['birthdate'],
                     $_POST['adress'],
                     $_POST['cep'],
+                    $_POST['id']
                     ));
 
 
-    $id=pg_fetch_result($result, 0, 0);
     pg_close($connection);
-    echo $id;
-}
 
-    if (!isset($_POST['admin'])) register('Customers', FALSE);
-    else register('Managers', TRUE);
 
 ?>

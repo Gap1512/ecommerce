@@ -104,10 +104,10 @@ function rowAcep(but) {
     var id = $(but).parents('tr')[0].cells[0].innerText;
 
     if(id!='' && id!=undefined){
-        updateDb(but, id);
+        updateDb(but, id, tabela);
     }
     else{
-        insertDb(but);
+        insertDb(but, tabela);
     }
 
 /*     $.ajax({
@@ -125,8 +125,11 @@ function rowAcep(but) {
     }); */
 }
 
-function insertDb(but){
-    var post_url = './database/product-insert.php';
+function insertDb(but, tabela){
+    if(tabela == 'products')
+        var post_url = './database/product-insert.php';
+    else if(tabela == 'customers' || tabela == 'managers')
+        var post_url = './database/customer-insert.php';
     //Faz o submit dos inputs
     var $row = $(but).parents('tr');  //accede a la fila
     var $cols = $row.find('td');  //lee campos
@@ -137,9 +140,11 @@ function insertDb(but){
     //Cria formulário
     var i = 1;
     var formHtml = "<form id='form' method='post' style='display: none'>";
-
+    
+    if(tabela == 'managers')
+        formHtml += "<input value='true' name='admin'>";
     IterarCamposEdit($cols, function($td){
-        let name = $('th')[i].innerText.toLowerCase();
+        let name = $('th')[i].innerText.toLowerCase().replace(' ', '');
         if($td.attr('tipo') == 'select')
             formHtml += "<input value='" + $td.find('select').val() + "' name='" + name + "'>";
         else   
@@ -181,8 +186,14 @@ function insertDb(but){
     params.onEdit($row);
 }
 
-function updateDb(but, id){
-    var post_url = './database/products-update.php';
+function updateDb(but, id, tabela){
+    if(tabela == 'products')
+        var post_url = './database/product-update.php';
+    else if(tabela == 'customers')
+        var post_url = './database/customer-update.php';
+    else if(tabela == 'managers')
+        var post_url = './database/manager-update.php';
+
     //Faz o submit dos inputs
     var $row = $(but).parents('tr');  //accede a la fila
     var $cols = $row.find('td');  //lee campos
@@ -193,7 +204,7 @@ function updateDb(but, id){
     var formHtml = "<form id='form' method='post' style='display: none'>";
 
     IterarCamposEdit($cols, function($td){
-        let name = $('th')[i].innerText.toLowerCase();
+        let name = $('th')[i].innerText.toLowerCase().replace(' ', '');
         if($td.attr('tipo') == 'select')
             formHtml += "<input value='" + $td.find('select').val() + "' name='" + name + "'>";
         else   
@@ -272,6 +283,10 @@ function rowElim(but) {  //Elimina la fila actual
     
     if(tabela == 'products')
         var post_url = './database/product-delete.php'
+    else if(tabela == 'customers')
+        var post_url = './database/customer-delete.php'
+    else if(tabela == 'managers')
+        var post_url = './database/manager-delete.php'
 
     $row.append("<form id='form' method='post'><input value='"+id+"' name='id'>  <input type='submit'>  </form>");
 

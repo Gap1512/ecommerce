@@ -9,8 +9,8 @@
 <?php validadeUser(TRUE); ?>
 
 <div class="table-content">
-<h2 class="titulo">Customers:</h2>
-    <table class="table table-borded table-responsive table-striped " id="table-list" tabela="customers" campo="customerid">
+<h2 class="titulo">Managers:</h2>
+    <table class="table table-borded table-responsive table-striped " id="table-list" tabela="managers" campo="managerid">
         <thead class="table-dark">
             <tr>
                 <th>ID </th>
@@ -29,7 +29,7 @@
         
             <?php
                 require 'database/database-connection.php';
-                include 'database/customers-selection.php';
+                include 'database/managers-selection.php';
             ?>
 
         </tbody>
@@ -37,3 +37,6 @@
     <button class="btn btn-info" id="add"><span class="fas fa-plus-circle"></span> Add New Members</button>
 </div>
 
+    <script type="text/javascript" src="js/bootstrap/jquery.min.js"></script>
+    <script type="text/javascript" src="js/editable-table.js"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>

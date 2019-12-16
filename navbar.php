@@ -23,6 +23,9 @@
             <a class="nav-link" href="/ecommerce/customers.php">Users</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/ecommerce/managers.php">Managers</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/ecommerce/brands-register.php">Brands</a>
         </li>
         <li class="nav-item">

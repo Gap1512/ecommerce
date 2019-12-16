@@ -4,6 +4,16 @@
     text-align: center;
 }
 
-td {
-    width: 100px;
+.table.products td {
+    max-width: 138px;
+    overflow-y: scroll;
+    white-space: nowrap;
+    overflow: auto;
+    -ms-text-overflow: clip;
+    -o-text-overflow: clip;
+    text-overflow: clip;
+}
+
+.table.products{
+    font-size: 13px;
 }
