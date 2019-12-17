@@ -1,3 +1,4 @@
+
 <?php
     $products = loadValuesFromDB('select * from web.products');
 
@@ -12,7 +13,7 @@
         }
       }
 
-      $redirect = "../product.php?product_id=" . $product["productid"];
+      $redirect = "../ecommerce/product.php?product_id=" . $product["productid"];
       echo '
         <div class="col-lg-4 col-md-6 mb-4">
           <div class="card h-100">
@@ -21,7 +22,7 @@
               <h4 class="card-title">
                 <a href='.$redirect.'>'.$product["productname"].'</a>
               </h4>
-              <h5>R$ '.$product["productprice"].'.00</h5>
+              <h5>R$ '.$product["productprice"].'</h5>
               <p class="card-text">'.$product["productdescription"].'</p>
             </div>
             <div class="card-footer">
