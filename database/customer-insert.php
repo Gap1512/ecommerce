@@ -1,37 +1,27 @@
 <?php
 
-function register($table, $admin){
-
     require 'database-connection.php';
 
     $connection=databaseConnection();
 
-    pg_prepare($connection, "insert", 'INSERT INTO web.'.$table.'(Email, Password, FirstName, LastName, CPF, BirthDate, Adress, Cep) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING customerid');
+    pg_prepare($connection, "insert", 'INSERT INTO web.managers (Email, Password, FirstName, LastName, CPF, BirthDate, Adress, Cep) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING customerid');
 
     include 'init-customers-fields.php';
 
     $result = pg_execute($connection, "insert",
-                         array($_POST['customerEmail'],
-                               $_POST['customerPassword'],
-                               $_POST['customerFirstName'],
-                               $_POST['customerLastName'],
-                               $_POST['customerCPF'],
-                               $_POST['customerBirthDate'],
-                               $_POST['customerAdress'],
-                               $_POST['customerCEP'],
+                         array($_POST['email'],
+                               $_POST['password'],
+                               $_POST['firstname'],
+                               $_POST['lastname'],
+                               $_POST['cpf'],
+                               $_POST['birthdate'],
+                               $_POST['adress'],
+                               $_POST['cep'],
                          ));
 
 
     $id=pg_fetch_result($result, 0, 0);
     pg_close($connection);
-
-    // echo $id;
-
-    header("Location: /ecommerce/index.php");
-    die();
-}
-
-    if (!isset($_POST['admin'])) register('Customers', FALSE);
-    else register('Managers', TRUE);
+    echo $id;
 
 ?>

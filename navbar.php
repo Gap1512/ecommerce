@@ -32,6 +32,9 @@
             <a class="nav-link" href="/ecommerce/categories-register.php">Categories</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/ecommerce/email.php">E-mail</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/ecommerce/cart.php">Cart</a>
         </li>
         </ul>

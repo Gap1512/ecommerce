@@ -128,7 +128,7 @@ function rowAcep(but) {
 function insertDb(but, tabela){
     if(tabela == 'products')
         var post_url = './database/product-insert.php';
-    else if(tabela == 'customers' || tabela == 'managers')
+    else if(tabela == 'managers')
         var post_url = './database/customer-insert.php';
     //Faz o submit dos inputs
     var $row = $(but).parents('tr');  //accede a la fila
@@ -141,8 +141,8 @@ function insertDb(but, tabela){
     var i = 1;
     var formHtml = "<form id='form' method='post' style='display: none'>";
     
-    if(tabela == 'managers')
-        formHtml += "<input value='true' name='admin'>";
+/*     if(tabela == 'managers')
+        formHtml += "<input value='true' name='admin'>"; */
     IterarCamposEdit($cols, function($td){
         let name = $('th')[i].innerText.toLowerCase().replace(' ', '');
         if($td.attr('tipo') == 'select')
@@ -166,6 +166,9 @@ function insertDb(but, tabela){
             data: form.serialize(),
             success: function(id){
                 id_col.innerText = id;
+            },
+            error: function(e){
+                console.log(e);
             }
         });
     });
