@@ -22,7 +22,7 @@
               <h4 class="card-title">
                 <a href='.$redirect.'>'.$product["productname"].'</a>
               </h4>
-              <h5>R$ '.$product["productprice"].'.00</h5>
+              <h5>R$ '.$product["productprice"].'</h5>
               <p class="card-text">'.$product["productdescription"].'</p>
             </div>
             <div class="card-footer">
