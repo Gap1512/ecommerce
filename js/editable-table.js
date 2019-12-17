@@ -129,7 +129,7 @@ function insertDb(but, tabela){
     if(tabela == 'products')
         var post_url = './database/product-insert.php';
     else if(tabela == 'managers')
-        var post_url = './database/customer-insert.php';
+        var post_url = './database/admin-insert.php';
     //Faz o submit dos inputs
     var $row = $(but).parents('tr');  //accede a la fila
     var $cols = $row.find('td');  //lee campos
