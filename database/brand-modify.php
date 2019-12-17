@@ -11,11 +11,10 @@
 
     if ($_POST['brandModify'] == 'Delete'){
         
-        foreach($_POST['Brands'] as $brand) {
+            $brand=$_POST['brand'];
             $result=pg_execute($connection, "delete", array($brand));
             if ($result !== FALSE) echo "Brand $brand deleted from database";
             else echo "An error ocurred, it was not possible to delete, try deleting the products from brand $brand";
-        }
     
     }
 
@@ -30,15 +29,14 @@
                   </tr>
                  <tbody>';
         
-        foreach($_POST['Brands'] as $brand) {
+            $brand=$_POST['brand'];
             $details=pg_fetch_assoc(pg_execute($connection, "details", array($brand)));
             echo '<tr>';
             echo '<td>'.$details['brandid'].'</td>';
             echo '<td>'.$details['brandname'].'</td>';
             echo '<td>'.$details['brandrating'].'</td>';            
             echo '</tr>';
-        }
-
+            
         echo '</table><br>';
     
     }

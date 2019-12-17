@@ -11,11 +11,10 @@
 
     if ($_POST['categoryModify'] == 'Delete'){
         
-        foreach($_POST['Categories'] as $category) {
-            $result=pg_execute($connection, "delete", array($category));
-            if ($result !== FALSE) echo "Category $category deleted from database";
-            else echo "An error ocurred, it was not possible to delete, try deleting the products from category $category";
-        }
+        $category=$_POST['category'];
+        $result=pg_execute($connection, "delete", array($category));
+        if ($result !== FALSE) echo "Category $category deleted from database";
+        else echo "An error ocurred, it was not possible to delete, try deleting the products from category $category";
     
     }
 
@@ -29,15 +28,14 @@
                   </tr>
                  <tbody>';
         
-        foreach($_POST['Categories'] as $category) {
-            $details=pg_fetch_assoc(pg_execute($connection, "details", array($category)));
-            echo '<tr>';
-            echo '<td>'.$details['categoryid'].'</td>';    
-            echo '<td>'.$details['categoryname'].'</td>';       
-            echo '</tr>';
-        }
+        $category=$_POST['category'];
+        $details=pg_fetch_assoc(pg_execute($connection, "details", array($category)));
+        echo '<tr>';
+        echo '<td>'.$details['categoryid'].'</td>';    
+        echo '<td>'.$details['categoryname'].'</td>';       
+        echo '</tr>';
 
-        echo '</table><br>';
+    echo '</table><br>';
     
     }
 
