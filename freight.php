@@ -15,7 +15,7 @@ if( !function_exists( 'freightCalculation' ))
       if($xml->cServico->Erro == '0'){
          
          echo '<strong>Freight Price: </strong>'.$xml -> cServico -> Valor.'<br>';
-         echo '<strong>Deliever Timer: </strong>'.$xml -> cServico -> PrazoEntrega.'<br>';
+         echo '<strong>Deliever Time: </strong>'.$xml -> cServico -> PrazoEntrega.' Days<br>';
       }
    }
 }
