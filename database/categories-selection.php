@@ -2,7 +2,7 @@
     $connection = databaseConnection();
 
     $categories=pg_query($connection, "SELECT * FROM web.Categories");
-    $selected = pg_query($connection, "SELECT brandid FROM web.productbrands WHERE productid =".$product['productid']);
+    //$selected = pg_query($connection, "SELECT brandid FROM web.productbrands WHERE productid =".$product['productid']);
 
     echo '<select class="selectpicker" name="category">';
 
