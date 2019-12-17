@@ -10,6 +10,5 @@ if(!isset($_POST['productID']) and !isset($_POST['productQuantity'])){
     header("Location: cart.php");
     die();
 }
-    
 
 ?>

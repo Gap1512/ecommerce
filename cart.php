@@ -7,6 +7,9 @@
 <body>
 <?php include 'navbar.php' ?>
 <div class="table-content">
+
+     <form action="purchase.php" method="post">
+
     <table class="table table-borded table-responsive table-striped " id="table-list">
         <thead class="table-dark">
             <tr>
@@ -25,6 +28,11 @@
 
         </tbody>
     </table>
+
+    <input type="submit" value="Complete Purchase" class="btn btn-info" >
+
+    </form>
+
 </div>
 
     <script type="text/javascript" src="js/bootstrap/jquery.min.js"></script>
