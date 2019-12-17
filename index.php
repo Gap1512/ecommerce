@@ -32,9 +32,6 @@
               echo '<button style="text-align: left" class="list-group-item button categoryfilter" type="button" value="'.$category['categoryid'].'">'.$category['categoryname'].'</button>';
             } 
           ?>
-          <a class="list-group-item">Celulares</a>
-          <a class="list-group-item">Televisores</a>
-          <a  class="list-group-item">Geladeiras</a>
         </div>
         <div style="margin-top: 50px;">
           <h3 class="my-4">Marcas</h3>
@@ -51,9 +48,6 @@
               echo '<button style="text-align: left" class="list-group-item button brandfilter" type="button" value="'.$brand['brandid'].'">'.$brand['brandname'].'</button>';
             } 
           ?>
-          <a href="#" class="list-group-item">Android</a>
-          <a href="#" class="list-group-item">IOS</a>
-          <a href="#" class="list-group-item">Outros</a>
         </div>
       </div>
       <!-- /.col-lg-3 -->
